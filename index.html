@@ -10,14 +10,25 @@
 </head>
 
 <body>
+ 
+    <label id="myInput">
+      Search <input type="search" id="q" name="q" placeholder="Search term" /> 🔍 
+    </label>
+
+    <div id="number"> Displaing <span id="current"></span> / <span id="total"> </span> episodes </div>
+    
+
+  
 <div id="root">
+
   <template id="episode-card-template">
-    <section>
+    <section> 
       <h3>Film title</h3>
       <img />
       <p>Summary</p>
     </section>
   </template>
+
 </div>
   <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
   <script src="episodes.js"></script>
