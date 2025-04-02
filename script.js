@@ -1,12 +1,48 @@
 //You can edit ALL of the code here
 let allEpisodes
+const select = document.getElementById("episodeSelect"); 
+const input = document.getElementById("myInput");
 function setup() {
   allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes); //!!!! reuse 
   const numberTotal = document.getElementById("total");
   numberTotal.textContent = `${allEpisodes.length}`;
+  fillSelector(allEpisodes);
 }
 
+function fillSelector (allEpisodes) {
+  
+  allEpisodes.forEach((episode) => {
+    console.log (1);
+      const option = document.createElement("option");
+      option.value = episode.id;
+      const episodeCode = `S${String(episode.season).padStart(2, "0")}E${String(episode.number).padStart(2, "0")}`;
+      option.textContent = `${episodeCode} - ${episode.name}`;
+      select.appendChild(option);
+    }); // add value to selector
+  
+} 
+  select.addEventListener("change", function () {
+    const selectedEpisode = findEpisodeById(allEpisodes, Number(this.value));
+    if (selectedEpisode) {
+      makePageForEpisodes ([selectedEpisode])
+      document.getElementById("q").value = "";
+      
+    }
+    else {
+      clean();
+    }
+  });
+
+function findEpisodeById(episodes, id) {
+  return episodes.find((episode) => episode.id === id);
+}
+
+ function clean (){
+   setup();
+ }
+
+setup();
 
 function makePageForEpisodes(allEpisodes) {
   const numberElem = document.getElementById("current");
@@ -57,7 +93,7 @@ function makePageForEpisodes(allEpisodes) {
   }
 }
 
-document.getElementById("myInput").addEventListener("input", searchEpisode);
+input.addEventListener("input", searchEpisode);
 
 function searchEpisode(event) {
   const searchText = event.target.value.trim(); 
@@ -68,7 +104,5 @@ function searchEpisode(event) {
   } else {
   }
 }
-
-
 
 window.onload = setup;
