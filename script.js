@@ -1,12 +1,63 @@
 //You can edit ALL of the code here
-
+let allEpisodes
+const select = document.getElementById("episodeSelect"); 
+const input = document.getElementById("myInput");
 function setup() {
-  const allEpisodes = getAllEpisodes();
-  makePageForEpisodes(allEpisodes);
+  allEpisodes = getAllEpisodes();
+  makePageForEpisodes(allEpisodes); //!!!! reuse 
+  const numberTotal = document.getElementById("total");
+  numberTotal.textContent = `${allEpisodes.length}`;
+  fillSelector(allEpisodes);
 }
 
+function fillSelector (allEpisodes) {
+  
+  allEpisodes.forEach((episode) => {
+    console.log (1);
+      const option = document.createElement("option");
+      option.value = episode.id;
+      const episodeCode = `S${String(episode.season).padStart(2, "0")}E${String(episode.number).padStart(2, "0")}`;
+      option.textContent = `${episodeCode} - ${episode.name}`;
+      select.appendChild(option);
+    }); // add value to selector
+  
+} 
+  select.addEventListener("change", function () {
+    const selectedEpisode = findEpisodeById(allEpisodes, Number(this.value));
+    if (selectedEpisode) {
+      makePageForEpisodes ([selectedEpisode])
+      document.getElementById("q").value = "";
+      
+    }
+    else {
+      clean();
+    }
+  });
+
+function findEpisodeById(episodes, id) {
+  return episodes.find((episode) => episode.id === id);
+}
+
+ function clean (){
+   setup();
+ }
+
+setup();
+
 function makePageForEpisodes(allEpisodes) {
+  const numberElem = document.getElementById("current");
+  numberElem.textContent = ` ${allEpisodes.length}`;
   const rootDiv = document.getElementById("root");
+  rootDiv.innerHTML = `                   
+  <template id="episode-card-template">
+    <section> 
+      <h3>Film title</h3>
+      <img />
+      <p>Summary</p>
+    </section>
+  </template>
+  `;
+// HTML clean 
 
   for (let i = 0; i < allEpisodes.length; i++) {
     const episodeCard = document
@@ -32,8 +83,19 @@ function makePageForEpisodes(allEpisodes) {
       allEpisodes[i].summary.slice(3, allEpisodes[i].summary.length - 4)
     );
     episodeCard.querySelector("p").textContent = `${episodeSummary}`;
-
     rootDiv.append(episodeCard);
+  }
+}
+
+input.addEventListener("input", searchEpisode);
+
+function searchEpisode(event) {
+  const searchText = event.target.value.trim(); 
+  const foundEpisode = allEpisodes.filter(ep => ep.name.includes(searchText) || ep.summary.includes(searchText)); 
+
+  if (foundEpisode) {
+      makePageForEpisodes (foundEpisode);
+  } else {
   }
 }
 
