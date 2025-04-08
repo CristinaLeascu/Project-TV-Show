@@ -10,37 +10,36 @@
 </head>
 
 <body>
-
- <div id="heder"> 
+  <div id="header">
     <label id="myInput">
-      Search <input type="search" id="q" name="q" placeholder="Search term" /> 🔍 
+      Search <input type="search" id="q" name="q" placeholder="Search term" /> 🔍
     </label>
 
-    <div id="number"> Displaying <span id="current"></span> / <span id="total"> </span> episodes </div>
-  </div>  
+    <div id="number"> Displaying <span id="current"></span> / <span id="total"></span> episodes </div>
+  </div>
 
-  <select id="episodeSelect"><option></option></select>
-  
-<div id="root">
+  <select id="episodeSelect">
+    <option></option>
+  </select>
 
-  <template id="episode-card-template">
-    <section> 
-      <h3>Film title</h3>
-      <img />
-      <p>Summary</p>
-    </section>
-  </template>
+  <div id="root">
+    <p id="loadingMessage">Loading episodes, please wait...</p>
+    <p id="errorMessage" style="display: none; color: red;">Failed to load episodes. Please try again later.</p>
 
-</div>
-  <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
-  <script src="episodes.js"></script>
+    <template id="episode-card-template">
+      <section>
+        <h3>Film title</h3>
+        <img />
+        <p>Summary</p>
+      </section>
+    </template>
+  </div>
 
-  <!-- Loads YOUR javascript code -->
   <script src="script.js"></script>
+
   <footer>
     <p>Data used in this project from - <a href="https://tvmaze.com/" target="_blank">TVMaze.com</a></p>
   </footer>
-
 </body>
 
 </html>
