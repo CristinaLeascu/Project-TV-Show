@@ -1,13 +1,53 @@
 body {
-  background-color: #E0E0E0;
+  font-family: "Times New Roman", Times, serif;
+  background-color: #e0e0e0;
   text-align: center;
+}
+#shows-section,
+#search-section {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+#search-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: gray;
+}
+
+select {
+  color: gray;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+#number {
+  font-size: 12px;
+  color: gray;
+  text-align: center;
+}
+
+#myInput,
+#number {
+  margin: 5px 0;
+}
+
+#all-episodes-button {
+  color: gray;
 }
 
 #root {
   display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 5px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 5px;
 }
 section {
   background-color: whitesmoke;
@@ -58,7 +98,7 @@ footer p {
 }
 
 footer p a {
-  color:gray;
+  color: gray;
   text-decoration: none;
   cursor: pointer;
 }

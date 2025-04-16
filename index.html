@@ -10,22 +10,27 @@
 </head>
 
 <body>
-  <div id="header">
-    <label id="myInput">
-      Search <input type="search" id="q" name="q" placeholder="Search term" /> 🔍
-    </label>
+  <div id="shows-section">
 
+    <div id="select-show">
+      <label for="shows"></label>
+      <select name="shows" id="shows">
+        <option value="" disabled selected>Select a show</option>
+      </select>
+    </div>
+
+    <div id="select-episode">
+      <label for="episodes"></label>
+      <select name="episodes" id="episodes">Select an episode</select>
+    </div>
+
+  </div>
+  <div id="search-section">
+    <label id="myInput">
+      <input type="search" id="q" name="q" placeholder="Search term..." />
+    </label>
     <div id="number"> Displaying <span id="current"></span> / <span id="total"></span> episodes </div>
   </div>
-
-  <select id="showSelect">
-    <option></option>
-  </select>
-
-  <select id="episodeSelect">
-    <option></option>
-  </select>
-
 
 
   <div id="root">
