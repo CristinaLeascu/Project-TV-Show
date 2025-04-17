@@ -3,29 +3,49 @@ body {
   background-color: #e0e0e0;
   text-align: center;
 }
-#shows-section,
+nav#navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 #search-section {
+  color: gray;
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
-  font-size: 12px;
+  margin: 10px auto;
+  font-size: 14px;
 }
 
-#search-section {
-  display: flex;
-  flex-direction: row;
+#shows,
+#episodes,
+#myInput {
+  display: block;
   align-items: center;
   color: gray;
-}
-
-select {
-  color: gray;
   padding: 8px;
+  margin-bottom: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 14px;
+}
+input[type="search"] {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 250px;
+  transition: border-color 0.3s;
+}
+
+input[type="search"]:focus {
+  border-color: #007acc;
+  outline: none;
 }
 
 #number {
@@ -34,13 +54,9 @@ select {
   text-align: center;
 }
 
-#myInput,
-#number {
-  margin: 5px 0;
-}
-
-#all-episodes-button {
-  color: gray;
+#searchMessage {
+  font-size: 14px;
+  color: #555;
 }
 
 #root {
