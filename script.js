@@ -79,7 +79,7 @@ function makePageForEpisodes(episodes) {
   rootDiv.innerHTML = "";
 
   currentCount.textContent = episodes.length;
-  totalCount.textContent = episodes.length;
+  totalCount.textContent = state.episodes.length;
   if (episodes.length === 0) {
     rootDiv.innerHTML = "<p>No episodes available.</p>";
     return;
