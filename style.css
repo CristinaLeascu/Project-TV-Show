@@ -3,18 +3,10 @@ body {
   background-color: #e0e0e0;
   text-align: center;
 }
-nav#navbar {
-  background-color: #ffffff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 10px 20px;
-  margin-bottom: 20px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
 
-#search-section {
-  color: gray;
+#search-section,
+#select-show,
+#select-episode {
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -22,42 +14,22 @@ nav#navbar {
   font-size: 14px;
 }
 
-#shows,
-#episodes,
-#myInput {
-  display: block;
+select#shows, 
+select#episodes,
+#q, #searchMessage{
+  color:gray;
   align-items: center;
-  color: gray;
-  padding: 8px;
-  margin-bottom: 5px;
+  padding: 6px;
+  margin-bottom: 2px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+select#shows, 
+select#episodes,
+#q {
   border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-}
-input[type="search"] {
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 14px;
-  width: 250px;
-  transition: border-color 0.3s;
 }
 
-input[type="search"]:focus {
-  border-color: #007acc;
-  outline: none;
-}
-
-#number {
-  font-size: 12px;
-  color: gray;
-  text-align: center;
-}
-
-#searchMessage {
-  font-size: 14px;
-  color: #555;
-}
 
 #root {
   display: grid;

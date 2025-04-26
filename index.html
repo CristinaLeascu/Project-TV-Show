@@ -10,29 +10,29 @@
 </head>
 
 <body>
-  <div id="navbar">
+  <h2>TV Show</h2>
 
-    <div id="select-show">
-      <label for="shows"></label>
-      <select name="shows" id="shows">
-        <option value="" disabled selected></option>
-      </select>
-    </div>
-
-    <div id="select-episode">
-      <label for="episodes"></label>
-      <select name="episodes" id="episodes"></select>
-    </div>
-
-
-    <div id="search-section">
-      <label id="myInput">
-        <input type="search" id="q" name="q" placeholder="Search term..." />
-      </label>
-      <div id="number"> <span id="current"></span> <span id="total"></span></div>
-      <p id="searchMessage"></p>
-    </div>
+  <div id="select-show">
+    <label for="shows"></label>
+    <select name="shows" id="shows">
+      <option id="option" value="" disabled selected></option>
+    </select>
   </div>
+
+  <div id="select-episode">
+    <label for="episodes"></label>
+    <select name="episodes" id="episodes"></select>
+  </div>
+
+
+  <div id="search-section">
+    <label id="myInput">
+      <input type="search" id="q" name="q" placeholder="Search term..." />
+    </label>
+    <div id="number"> <span id="current"></span> <span id="total"></span></div>
+    <p id="searchMessage"></p>
+  </div>
+
 
   <div id="root">
     <p id="loadingMessage">Loading episodes, please wait...</p>
